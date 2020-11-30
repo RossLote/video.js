@@ -132,6 +132,9 @@ export const getAbsoluteURL = function(url) {
  */
 export const getFileExtension = function(path) {
   if (typeof path === 'string') {
+    if (path.indexOf('#') > 0) {
+      path = path.substring(0, path.indexOf('#'));
+    }
     const splitPathRe = /^(\/?)([\s\S]*?)((?:\.{1,2}|[^\/]+?)(\.([^\.\/\?]+)))(?:[\/]*|[\?].*)$/;
     const pathParts = splitPathRe.exec(path);
 

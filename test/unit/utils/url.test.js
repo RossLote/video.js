@@ -59,6 +59,10 @@ QUnit.test('should get the file extension of the passed path', function(assert) 
   assert.equal(Url.getFileExtension('http://www.test.com/video.mp4'), 'mp4');
   assert.equal(Url.getFileExtension('http://foo/bar/test.video.wgg'), 'wgg');
 
+  // fragments
+  assert.equal(Url.getFileExtension('http://www.test.com/video.mp4#t=0.001'), 'mp4');
+  assert.equal(Url.getFileExtension('foo/.bar/test.video.flv?foo=bar#t=0.001'), 'flv');
+
   // edge cases
   assert.equal(Url.getFileExtension('http://...'), '');
   assert.equal(Url.getFileExtension('foo/.bar/testvideo'), '');
